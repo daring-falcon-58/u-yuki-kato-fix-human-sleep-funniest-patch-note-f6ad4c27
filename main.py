@@ -19,6 +19,10 @@ Method (why this line should win, judge criteria in order):
 
 import os
 
+# Entry gate: the output is exactly one 84-char patch-note line, no
+# trailing newline. main.py self-checks the gate by reading
+# /output/entry.txt back and exiting 1 on any byte mismatch, so a
+# bad write can never pass silently.
 ENTRY = (
     "Fixed: your body clock now syncs with NTP. "
     "It was four hours behind and blaming you."
